@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Movie Data</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="side-bar">
+      <div class="container">
+        <div class="side-bar-top">
+          <h2>Movies</h2>
+          <div class="side-bar-menu">
+            <i class="fa-solid fa-bars"></i>
+
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+      </div>
+      <ul class="side-bar-list">
+        <!-- <div class="container"> -->
+        <li class="bar-list">
+          <input type="text" id="search-bar" placeholder="Search for movie" />
+        </li>
+        <li class="bar-list">
+          <select name="" id="select-movie">
+            <option value="">Sort movies</option>
+            <option value="Movie by the year">Movie by the year</option>
+          </select>
+        </li>
+        <li class="bar-list">
+          <button class="add-movie">Add new Movie</button>
+        </li>
+
+        <!-- </div> -->
+      </ul>
+    </div>
+
+    <div class="container">
+      <h1>Movies</h1>
+
+      <div class="header-top">
+        <select name="" id="select-movie">
+          <option value="">Sort movies </option>
+          <option value="Movie by the year">Movie by the year</option>
+        </select>
+        <input type="text" id="search-bar" placeholder="Search for movie" />
+        <button class="add-movie">Add new Movie</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="message"></div>
+      <form id="new-movie">
+        <i class="fas fa-times close"></i>
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            name="title"
+            type="text"
+            class="form-control"
+            id="title"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="year" class="form-label">Year</label>
+          <input
+            name="year"
+            type="text"
+            class="form-control"
+            id="year"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="runtime" class="form-label">Runtime</label>
+          <input
+            name="runtime"
+            type="text"
+            class="form-control"
+            id="runtime"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating</label>
+          <input
+            name="rating"
+            type="text"
+            class="form-control"
+            id="rating"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="plot" class="form-label">Plot</label>
+          <textarea
+            name="plot"
+            id="plot"
+            cols="20"
+            rows="5"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="cast" class="form-label">Cast 1</label>
+          <input
+            name="cast"
+            type="text"
+            class="form-control"
+            id="cast"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="cast1" class="form-label">Cast 2</label>
+          <input
+            name="cast1"
+            type="text"
+            class="form-control"
+            id="cast1"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="cast2" class="form-label">Cast 3</label>
+          <input
+            name="cast2"
+            type="text"
+            class="form-control"
+            id="cast2"
+            required
+          />
+        </div>
+        <div class="field">
+          <label class="label">Image</label>
+          <input type="file" name="image" id="fileImg" />
+        </div>
+        <button type="submit" class="btn add-new form-control m-3" data-id="1">
+          Add New Movie
+        </button>
+      </form>
+      <div id="movie-list"></div>
+      <!-- <div class="edit-form">
+
+    </div> -->
+
+      <form id="edit-movie">
+        <i class="fas fa-times close"></i>
+
+        <div class="mb-3">
+          <label for="year" class="form-label">Year</label>
+          <input
+            name="year"
+            type="text"
+            class="form-control"
+            id="year"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="runtime" class="form-label">Runtime</label>
+          <input
+            name="runtime"
+            type="text"
+            class="form-control"
+            id="runtime"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating</label>
+          <input
+            name="rating"
+            type="text"
+            class="form-control"
+            id="rating"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="plot" class="form-label">Plot</label>
+          <textarea
+            name="plot"
+            id="plot"
+            cols="20"
+            rows="5"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="cast" class="form-label">Cast</label>
+          <textarea
+            name="cast"
+            id="cast"
+            cols="5"
+            rows="2"
+            class="form-control"
+            required
+          >
+          </textarea>
+        </div>
+
+        <div class="field">
+          <label class="label">Image</label>
+          <input type="file" name="image" id="newImg" />
+        </div>
+        <button class="btn add-new update form-control m-3">
+          Add New Movie
+        </button>
+      </form>
+
+      <!-- <img id="displayImg"/> -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
